@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'ias.inspection.personnel.acct'`, () => {
+  it(`should have as title 'IASInspectionAndPersonnelAccounting'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('ias.inspection.personnel.acct');
+    expect(app.title).toEqual('IASInspectionAndPersonnelAccounting');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('ias.inspection.personnel.acct app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('IASInspectionAndPersonnelAccounting app is running!');
   });
 });

@@ -1,0 +1,23 @@
+<form [formGroup]="signinForm" (ngSubmit)="signin()" novalidate>
+	<mat-form-field>
+		<mat-label>Email</mat-label>
+		<input matInput placeholder="yourusername@gmail.com" formControlName="email">
+		<mat-error *ngIf="signinForm.controls['email'].hasError('required')">
+			Email is <strong>required</strong>
+		</mat-error>
+		<mat-error *ngIf="signinForm.controls['email'].hasError('email')">
+			Email is <strong>not valid</strong>
+		</mat-error>
+	</mat-form-field>
+	<mat-form-field>
+		<mat-label>Password</mat-label>
+		<input matInput placeholder="your password here." formControlName="password">
+		<mat-error *ngIf="signinForm.controls['password'].hasError('required')">
+			Password is <strong>required</strong>
+		</mat-error>
+		<mat-error *ngIf="signinForm.controls['password'].hasError('notFound')">
+			Click <strong><a routerLink="/home">here</a></strong> to register a new account
+		</mat-error>
+	</mat-form-field>
+	<button color="accent" mat-raised-button type="submit">Signin</button>
+</form>
