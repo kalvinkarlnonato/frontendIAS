@@ -7,6 +7,7 @@ import { InspectionComponent } from './components/inspection/inspection.componen
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
+  { path: 'admin', component: HomeComponent },
   { path: 'inspection', component: InspectionComponent },
   { path: 'login', component: SiginComponent },
   { path: '', component: HomeComponent },

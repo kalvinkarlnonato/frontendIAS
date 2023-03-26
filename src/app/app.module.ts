@@ -19,6 +19,7 @@ import { SiginComponent } from './components/sigin/sigin.component';
 import { HomeComponent } from './components/home/home.component';
 import { InspectionComponent } from './components/inspection/inspection.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { FooterComponent } from './components/footer/footer.component';
     SiginComponent,
     HomeComponent,
     InspectionComponent,
-    FooterComponent
+    FooterComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,

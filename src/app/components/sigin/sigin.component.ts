@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class SiginComponent implements OnInit {
   signinForm: FormGroup;
 
-  constructor(private authService: AuthService){
+  constructor(private authService: AuthService, private router: Router){
     this.signinForm = new FormGroup({
       email: new FormControl('',[Validators.required, Validators.email]),
       password: new FormControl('',[Validators.required]),
@@ -28,6 +28,7 @@ export class SiginComponent implements OnInit {
       .subscribe({
         next: (res) => {
           console.log(res);
+          this.router.navigate(['admin']);
         },
         error: (err) => {
           if(err.status === 404){
