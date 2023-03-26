@@ -18,6 +18,7 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { SiginComponent } from './components/sigin/sigin.component';
 import { HomeComponent } from './components/home/home.component';
 import { InspectionComponent } from './components/inspection/inspection.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { InspectionComponent } from './components/inspection/inspection.componen
     NavigationComponent,
     SiginComponent,
     HomeComponent,
-    InspectionComponent
+    InspectionComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
