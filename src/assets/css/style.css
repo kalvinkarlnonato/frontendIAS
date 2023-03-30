@@ -1,12 +1,3 @@
-
-
-/*
-Author: Bootstrapthemes
-Author URI: http://bootstrapthemes.co
-*/
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
 html,
 body {
     background-color: #fff;
@@ -45,15 +36,6 @@ body {
     -moz-background-size: cover;
     background-size: cover;
     margin: -20px 0 0 -20px;
-}
-
-img {
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    -webkit-user-drag: none;
-    user-drag: none;
 }
 a,
 a:hover,
@@ -550,8 +532,6 @@ input::-ms-input-placeholder {
 .navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus{
     color:#f6c23a;
 }
-.main_menu_bg .navbar {}
-
 .main_menu_bg .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus{
     color: #f6c23a;
     background: url(../images/selectmenu.png) no-repeat bottom center;
@@ -712,7 +692,6 @@ input::-ms-input-placeholder {
     position: relative;
     background: #ffffff;
 }
-.main_service_area{}
 .single_service{
     margin-top:30px;
 }
@@ -735,7 +714,6 @@ input::-ms-input-placeholder {
 .greenbackground{
     background: #5e9a28;
 }
-.choose{}
 .main_choose_area{
     color:#fff;
 }
@@ -745,9 +723,6 @@ input::-ms-input-placeholder {
     text-transform: uppercase;
     margin-bottom: 90px;
 }
-
-.main_choose_area .main_choose_content{}
-.main_choose_area .main_choose_content .single_choose_content{} 
 .main_choose_area .main_choose_content .single_choose_content h2{
     font-size:1.625rem;
 } 
@@ -761,10 +736,6 @@ input::-ms-input-placeholder {
 
 
 /*main_portfolio_content_area*/
-.portfolio{}
-.main_portfolio{}
-.main_portfolio_content_area{}
-
 
 
 /* mixitup section */
@@ -838,11 +809,11 @@ input::-ms-input-placeholder {
 }
 
 
-.mixcontent .mix{
+/* .mixcontent .mix{
     display: none;
     -webkit-backface-visibility: hidden;
     -webkit-transform-origin: 50% 0;
-}
+} */
 
 .portfolio_btn_area{
     overflow: hidden;
@@ -857,12 +828,9 @@ input::-ms-input-placeholder {
     color:#fff;
 }
 
-.main_newsletter{}
-.main_newsletter .single_newsletter_head{}
 .main_newsletter .single_sewsletter_content{
     margin-top:80px;
 }
-.main_newsletter .single_sewsletter_content .form-group{}
 .main_newsletter .single_sewsletter_content .form-group input[type="submit"] {
     height: 35px;
     padding: 0.06em 2em;
@@ -880,22 +848,17 @@ input::-ms-input-placeholder {
 .about .main_about{
     position: relative; 
 }
-.about .main_about_content_area{
-
-}
 .about .main_about_content_area .single_about_left_img{
     position: absolute;
     left:0;
     bottom:0;
     width:30%;
 }
-.about .main_about_content_area .single_about_right_content{}
 .about .main_about_content_area .single_about_right_content .right_single_about_skill{
     margin-top: 20px;
     overflow: hidden;
 }
 
-.about .main_about_content_area .single_about_right_content .right_single_about_skill .right_about_top_cotent{}
 .about .main_about_content_area .single_about_right_content .right_single_about_skill .right_about_top_cotent .right_about_top_img{
     width: 15%;
     float: left;
@@ -909,7 +872,7 @@ input::-ms-input-placeholder {
 .about .main_about_content_area .single_about_right_content .right_single_about_skill .right_about_bottom_cotent{
     padding: 20px 0px;
     margin-top:30px;
-    oveflow:hidden;
+    overflow:hidden;
 }
 
 
@@ -919,10 +882,6 @@ input::-ms-input-placeholder {
 
 .blog{
     background: #f1eee6;
-}
-.blog .main_blog_area{}
-.blog .main_blog_area .main_blog_content{
-
 }
 .blog .main_blog_area .main_blog_content ul.main_blog{
     width:100%;
@@ -984,7 +943,6 @@ input::-ms-input-placeholder {
     color:#fff;
 }
 
-.main_testimonial{}
 .main_testimonial .head_title p{
     color:#f5c239;
     font-size: 1.125rem;
@@ -1008,14 +966,10 @@ blockquote footer, blockquote small, blockquote .small {
 
 
 /*counter section css*/
-.counter{}
-.counter .main_counter{}
-.counter .main_counter{}
 .single_left_counter_bg{
     background: url(../images/cleftbg.png) no-repeat 100% 100%;
     display: inline-block;
     max-width: 500px;
-    float: left;
     background-size: cover;
     overflow: hidden;
     padding: 40px 40px 10px 40px;
@@ -1030,7 +984,6 @@ blockquote footer, blockquote small, blockquote .small {
 }
 
 
-.counter .single_counter_right_area{}
 .counter .single_counter_right_area .single_counter_right{
     margin-top:30px;
     border-bottom: 5px solid #f1eee6;
@@ -1242,11 +1195,9 @@ blockquote footer, blockquote small, blockquote .small {
 
 
 /*team section css*/
-.team{}
 .team .head_title{
     color:#223d61;
 }
-.team .single_team{}
 .team .single_item{
     position: relative;
     max-width: 100%;
@@ -1294,14 +1245,10 @@ blockquote footer, blockquote small, blockquote .small {
 
 
 /*gellary section css*/
-.gellary{}
 .gellary .single_gellary_item{
     position: relative;  
     max-width:100%; 
     margin-bottom:30px;
-}
-.gellary .single_gellary_item img{
-
 }
 .gellary .single_gellary_item:hover .gellary_overlay{
     opacity: 1; 
@@ -1333,7 +1280,6 @@ blockquote footer, blockquote small, blockquote .small {
 }
 
 /*contact section css*/
-.contact{}
 .contact .head_title h2{
     color:#223d61;
 }
@@ -1386,13 +1332,8 @@ blockquote footer, blockquote small, blockquote .small {
 }
 
 /*maps section css*/
-
-.map{}
 .ourmaps{
     width:100%;
     height: 440px;
 
 }
-
-
-
