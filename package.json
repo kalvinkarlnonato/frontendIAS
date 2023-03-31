@@ -5,7 +5,7 @@
     "ng": "ng",
     "home": "ng serve home --port 80",
     "admin": "ng serve admin --port 4200",
-    "build": "ng build",
+    "build": "ng build --project=home && ng build --project=admin",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
