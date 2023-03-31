@@ -5,29 +5,17 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { AddEditComponent } from './add-edit/add-edit.component';
 import { MemberService } from '../../services/member.service';
-import { CoreService } from '../../core/core.service';
+import { CoreService } from '../../services/core.service';
 import { Member } from '../../models/member.model';
 
 @Component({
   selector: 'app-members',
   templateUrl: './members.component.html',
-  styleUrls: ['./members.component.scss']
+  styleUrls: ['./members.component.scss'],
 })
 export class MembersComponent implements OnInit {
-  displayedColumns: string[] = [
-    'id',
-    'firstName',
-    'lastName',
-    'email',
-    'dob',
-    'gender',
-    'education',
-    'company',
-    'experience',
-    'package',
-    'action',
-  ];
-  dataSource!: MatTableDataSource<any>;
+  displayedColumns: any[] = ['id', 'team_name', 'members', 'userid', 'action'];
+  dataSource!: MatTableDataSource<Member>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -42,7 +30,7 @@ export class MembersComponent implements OnInit {
     this.getEmployeeList();
   }
 
-  openAddEditEmpForm() {
+  openAddEditMemberForm() {
     const dialogRef = this.dialog.open(AddEditComponent);
     dialogRef.afterClosed().subscribe({
       next: (val) => {
@@ -55,7 +43,7 @@ export class MembersComponent implements OnInit {
 
   getEmployeeList() {
     this.MemberService.getMemberAll().subscribe({
-      next: (res) => {
+      next: (res: Member[]) => {
         this.dataSource = new MatTableDataSource(res);
         this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;
@@ -76,7 +64,7 @@ export class MembersComponent implements OnInit {
   deleteEmployee(id: number) {
     this.MemberService.deleteMember(id).subscribe({
       next: (res) => {
-        this.coreService.openSnackBar('Employee deleted!', 'done');
+        this.coreService.openSnackBar('Member successfully deleted!', 'done');
         this.getEmployeeList();
       },
       error: console.log,

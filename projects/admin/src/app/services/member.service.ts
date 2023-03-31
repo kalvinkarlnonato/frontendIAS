@@ -15,7 +15,7 @@ export class MemberService {
 
   constructor(private http: HttpClient) { }
   addMember(data: Member): Observable<Member> {
-    return this.http.post<Member>('http://localhost:3500/team', data);
+    return this.http.post<Member>('http://localhost:3500/team/add', data);
   }
 
   getMemberAll(): Observable<Member[]> {
@@ -23,10 +23,10 @@ export class MemberService {
   }
 
   updateMember(id: number, data: any): Observable<Member> {
-    return this.http.put<Member>(`http://localhost:3500/team/${id}`, data);
+    return this.http.put<Member>(`http://localhost:3500/team/edit/${id}`, data);
   }
 
   deleteMember(id: number): Observable<Member> {
-    return this.http.delete<Member>(`http://localhost:3500/team/${id}`);
+    return this.http.delete<Member>(`http://localhost:3500/team/delete/${id}`);
   }
 }
