@@ -18,7 +18,20 @@ export class LoginComponent implements OnInit {
       password: new FormControl('',[Validators.required]),
     });
   }
-  ngOnInit():void{
+
+  ngOnInit(): void {
+    if(this.authService.getToken()){
+			let user = this.authService.getUser();
+			let role = user.role;
+      if(role === 'su' || role === 'ia'){
+        this.router.navigate(["dashboard"]);
+      }
+      // else if(role === 'ap'){
+      //   this.router.navigate(["user"]);
+      // }else if(role === 'ev'){
+      //   this.router.navigate(["evaluate"]);
+      // }
+    }
   }
   
   signin():void{
@@ -27,6 +40,8 @@ export class LoginComponent implements OnInit {
       .subscribe({
         next: (res) => {
           console.log(res);
+          this.authService.saveToken(res.token);
+          this.authService.saveUser(res);
           this.router.navigate(['dashboard']);
         },
         error: (err) => {

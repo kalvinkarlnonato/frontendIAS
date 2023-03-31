@@ -29,7 +29,9 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { MembersComponent } from './components/members/members.component';
 import { InvestigationComponent } from './components/investigation/investigation.component';
 import { AddEditComponent } from './components/members/add-edit/add-edit.component';
+
 import { LoginComponent } from './components/login/login.component';
+import { authInterceptorProviders } from './services/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -64,7 +66,7 @@ import { LoginComponent } from './components/login/login.component';
     MatSortModule,
     MatSnackBarModule,
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

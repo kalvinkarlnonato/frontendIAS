@@ -33,9 +33,9 @@ export class MembersComponent implements OnInit {
   @ViewChild(MatSort) sort!: MatSort;
 
   constructor(
-    private _dialog: MatDialog,
-    private _MemberService: MemberService,
-    private _coreService: CoreService
+    private dialog: MatDialog,
+    private MemberService: MemberService,
+    private coreService: CoreService
   ) {}
 
   ngOnInit(): void {
@@ -43,7 +43,7 @@ export class MembersComponent implements OnInit {
   }
 
   openAddEditEmpForm() {
-    const dialogRef = this._dialog.open(AddEditComponent);
+    const dialogRef = this.dialog.open(AddEditComponent);
     dialogRef.afterClosed().subscribe({
       next: (val) => {
         if (val) {
@@ -54,7 +54,7 @@ export class MembersComponent implements OnInit {
   }
 
   getEmployeeList() {
-    this._MemberService.getMemberAll().subscribe({
+    this.MemberService.getMemberAll().subscribe({
       next: (res) => {
         this.dataSource = new MatTableDataSource(res);
         this.dataSource.sort = this.sort;
@@ -74,9 +74,9 @@ export class MembersComponent implements OnInit {
   }
 
   deleteEmployee(id: number) {
-    this._MemberService.deleteMember(id).subscribe({
+    this.MemberService.deleteMember(id).subscribe({
       next: (res) => {
-        this._coreService.openSnackBar('Employee deleted!', 'done');
+        this.coreService.openSnackBar('Employee deleted!', 'done');
         this.getEmployeeList();
       },
       error: console.log,
@@ -84,7 +84,7 @@ export class MembersComponent implements OnInit {
   }
 
   openEditForm(data: any) {
-    const dialogRef = this._dialog.open(AddEditComponent, {
+    const dialogRef = this.dialog.open(AddEditComponent, {
       data,
     });
 

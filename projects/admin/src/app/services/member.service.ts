@@ -19,7 +19,7 @@ export class MemberService {
   }
 
   getMemberAll(): Observable<Member[]> {
-    return this.http.get<Member[]>('http://localhost:3500/team/all');
+    return this.http.get<Member[]>('http://localhost:3500/team/all', httpOptions);
   }
 
   updateMember(id: number, data: any): Observable<Member> {
