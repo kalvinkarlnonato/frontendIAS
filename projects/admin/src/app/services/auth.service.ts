@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../models/user.model';
 import { environment } from '../../environments/environment.development';
+import { Auth } from '../models/auth.model';
 
 const TOKEN_KEY = 'authToken';
 const USER_KEY = 'authUser';
@@ -17,8 +18,8 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  signin(user: User): Observable<any> {
-    return this.http.post<any>(`${environment.apiUrl}/user/signin`,user);
+  signin(user: User): Observable<Auth> {
+    return this.http.post<Auth>(`${environment.apiUrl}/user/signin`,user);
   }
 
   signOut(): void {
