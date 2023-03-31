@@ -3,35 +3,131 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "IASInspectionAndPersonnelAccounting": {
+    "home": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
         }
       },
-      "root": "",
-      "sourceRoot": "src",
-      "prefix": "ais",
+      "root": "projects/home",
+      "sourceRoot": "projects/home/src",
+      "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/iasinspection-and-personnel-accounting",
-            "index": "src/index.html",
-            "main": "src/main.ts",
+            "outputPath": "dist/home",
+            "index": "projects/home/src/index.html",
+            "main": "projects/home/src/main.ts",
             "polyfills": [
               "zone.js"
             ],
-            "tsConfig": "tsconfig.app.json",
+            "tsConfig": "projects/home/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              "projects/home/src/favicon.ico",
+              "projects/home/src/assets"
             ],
             "styles": [
-              "@angular/material/prebuilt-themes/indigo-pink.css",
-              "src/styles.scss"
+              "projects/home/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "home:build:production"
+            },
+            "development": {
+              "browserTarget": "home:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "home:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/home/tsconfig.spec.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/home/src/favicon.ico",
+              "projects/home/src/assets"
+            ],
+            "styles": [
+              "projects/home/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    },
+    "admin": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/admin",
+      "sourceRoot": "projects/admin/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/admin",
+            "index": "projects/admin/src/index.html",
+            "main": "projects/admin/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/admin/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/admin/src/favicon.ico",
+              "projects/admin/src/assets"
+            ],
+            "styles": [
+              "projects/admin/src/styles.scss"
             ],
             "scripts": []
           },
@@ -60,8 +156,8 @@
               "namedChunks": true,
               "fileReplacements": [
                 {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.development.ts"
+                  "replace": "projects/admin/src/environments/environment.ts",
+                  "with": "projects/admin/src/environments/environment.development.ts"
                 }
               ]
             }
@@ -72,10 +168,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "IASInspectionAndPersonnelAccounting:build:production"
+              "browserTarget": "admin:build:production"
             },
             "development": {
-              "browserTarget": "IASInspectionAndPersonnelAccounting:build:development"
+              "browserTarget": "admin:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +179,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "IASInspectionAndPersonnelAccounting:build"
+            "browserTarget": "admin:build"
           }
         },
         "test": {
@@ -93,15 +189,14 @@
               "zone.js",
               "zone.js/testing"
             ],
-            "tsConfig": "tsconfig.spec.json",
+            "tsConfig": "projects/admin/tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              "projects/admin/src/favicon.ico",
+              "projects/admin/src/assets"
             ],
             "styles": [
-              "@angular/material/prebuilt-themes/indigo-pink.css",
-              "src/styles.scss"
+              "projects/admin/src/styles.scss"
             ],
             "scripts": []
           }
