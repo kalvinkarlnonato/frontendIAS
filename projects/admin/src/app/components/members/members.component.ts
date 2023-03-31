@@ -6,6 +6,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { AddEditComponent } from './add-edit/add-edit.component';
 import { MemberService } from '../../services/member.service';
 import { CoreService } from '../../core/core.service';
+import { Member } from '../../models/member.model';
 
 @Component({
   selector: 'app-members',
