@@ -18,6 +18,11 @@ const navbarData = [
       icon: 'fal fa-chart-bar',
       label: 'investigation'
   },
+  {
+      routeLink: 'users',
+      icon: 'fal fa-drivers-license',
+      label: 'investigation'
+  },
 ];
 interface SideNavToggle {
   screenWidth: number;

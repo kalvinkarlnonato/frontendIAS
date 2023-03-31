@@ -4,6 +4,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { MembersComponent } from './components/members/members.component';
 import { InvestigationComponent } from './components/investigation/investigation.component';
 import { LoginComponent } from './components/login/login.component';
+import { UsersComponent } from './components/users/users.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -11,6 +12,7 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'members', component: MembersComponent },
   { path: 'investigation', component: InvestigationComponent },
+  { path: 'users', component: UsersComponent },
   { path: '**', redirectTo: 'dashboard', pathMatch: 'full' },
 ];
 

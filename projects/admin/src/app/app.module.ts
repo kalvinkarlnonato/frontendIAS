@@ -32,6 +32,7 @@ import { AddEditComponent } from './components/members/add-edit/add-edit.compone
 
 import { LoginComponent } from './components/login/login.component';
 import { authInterceptorProviders } from './services/auth.interceptor';
+import { UsersComponent } from './components/users/users.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { authInterceptorProviders } from './services/auth.interceptor';
     MembersComponent,
     InvestigationComponent,
     AddEditComponent,
-    LoginComponent
+    LoginComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
