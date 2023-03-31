@@ -7,34 +7,14 @@ const navbarData = [
       label: 'Dashboard'
   },
   {
-      routeLink: 'products',
+      routeLink: 'members',
       icon: 'fal fa-box-open',
-      label: 'Products'
+      label: 'members'
   },
   {
-      routeLink: 'statistics',
+      routeLink: 'investigation',
       icon: 'fal fa-chart-bar',
-      label: 'Statistics'
-  },
-  {
-      routeLink: 'coupens',
-      icon: 'fal fa-tags',
-      label: 'Coupens'
-  },
-  {
-      routeLink: 'pages',
-      icon: 'fal fa-file',
-      label: 'Pages'
-  },
-  {
-      routeLink: 'media',
-      icon: 'fal fa-camera',
-      label: 'Media'
-  },
-  {
-      routeLink: 'settings',
-      icon: 'fal fa-cog',
-      label: 'Settings'
+      label: 'investigation'
   },
 ];
 interface SideNavToggle {
