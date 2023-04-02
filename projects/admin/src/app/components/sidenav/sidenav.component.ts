@@ -2,6 +2,7 @@ import { animate, keyframes, style, transition, trigger } from '@angular/animati
 import { Component, Output, EventEmitter, OnInit, HostListener } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+interface NavbarData{ routeLink: string; icon: string; label: string; }
 const navbarData = [
   {
       routeLink: 'dashboard',
@@ -9,19 +10,24 @@ const navbarData = [
       label: 'Dashboard'
   },
   {
+      routeLink: 'profile',
+      icon: 'fal fa-user-circle',
+      label: 'Profile'
+  },
+  {
       routeLink: 'members',
-      icon: 'fal fa-box-open',
-      label: 'members'
+      icon: 'fal fa-poll-people',
+      label: 'Members'
   },
   {
       routeLink: 'investigation',
-      icon: 'fal fa-chart-bar',
-      label: 'investigation'
+      icon: 'fal fa-file-search',
+      label: 'Investigation'
   },
   {
       routeLink: 'users',
-      icon: 'fal fa-drivers-license',
-      label: 'investigation'
+      icon: 'fal fa-users',
+      label: 'Users'
   },
 ];
 interface SideNavToggle {
@@ -65,9 +71,22 @@ export class SidenavComponent implements OnInit {
   @Output() onToggleSideNav: EventEmitter<SideNavToggle> = new EventEmitter();
   collapsed = false;
   screenWidth = 0;
-  navData = navbarData;
+  navData?:NavbarData[];
+  loggined = false;
 
-  constructor(private authService: AuthService, private router: Router){}
+  constructor(private authService: AuthService, private router: Router){
+    //this.navData= navbarData;
+    if(authService.getToken()){
+      let user = authService.getUser();
+      if(user.role == 'su'){
+        this.navData = [navbarData[0],navbarData[1],navbarData[2],navbarData[3],navbarData[4]];
+      }else if(user.role == 'ad'){
+        this.navData = [navbarData[0],navbarData[1],navbarData[2],navbarData[4]];
+      }else if(user.role == 'ia'){
+        this.navData = [navbarData[0],navbarData[1],navbarData[3]];
+      }
+    }
+  }
 
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
@@ -80,6 +99,7 @@ export class SidenavComponent implements OnInit {
 
   ngOnInit(): void {
       this.screenWidth = window.innerWidth;
+      if(this.screenWidth > 768 ) this.toggleCollapse();     
   }
 
   toggleCollapse(): void {
@@ -94,6 +114,6 @@ export class SidenavComponent implements OnInit {
   
 	logout(): void {
 		this.authService.signOut();
-		this.router.navigate(['login']);
+    window.location.reload();
 	}
 }
