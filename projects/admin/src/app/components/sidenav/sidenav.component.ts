@@ -17,7 +17,7 @@ const navbar = {
   members:{
       routeLink: 'members',
       icon: 'fal fa-poll-people',
-      label: 'Members'
+      label: 'Teams'
   },
   investigation:{
       routeLink: 'investigation',
