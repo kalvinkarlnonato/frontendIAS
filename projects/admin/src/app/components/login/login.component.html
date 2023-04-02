@@ -1,58 +1,42 @@
 <mat-spinner *ngIf="!serverMessage" class="center"></mat-spinner>
 <section *ngIf="serverMessage && serverMessage.success">
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-12">
-				<div class="main_widget">
-					<div class="row">
-						<div class="col-sm-12 col-xs-12">
-							<div class="single_widget wow fadeIn" data-wow-duration="800ms">
-								<form [formGroup]="signinForm" (ngSubmit)="signin()" novalidate>
-									<mat-form-field>
-										<mat-label>Email</mat-label>
-										<input matInput placeholder="yourusername@gmail.com" formControlName="email">
-										<mat-error *ngIf="signinForm.controls['email'].hasError('required')">
-											Email is <strong>required</strong>
-										</mat-error>
-										<mat-error *ngIf="signinForm.controls['email'].hasError('email')">
-											Email is <strong>not valid</strong>
-										</mat-error>
-									</mat-form-field>
-									<mat-form-field>
-										<mat-label>Password</mat-label>
-										<input type="password" matInput placeholder="your password here." formControlName="password">
-										<mat-error *ngIf="signinForm.controls['password'].hasError('required')">
-											Password is <strong>required</strong>
-										</mat-error>
-										<mat-error *ngIf="signinForm.controls['password'].hasError('notFound')">
-											Click <strong><a routerLink="/home">here</a></strong> to register a new account
-										</mat-error><mat-error *ngIf="signinForm.controls['password'].hasError('password')">
-											Password is <strong>not valid</strong>
-										</mat-error>
-									</mat-form-field>
-									<button color="accent" mat-flat-button type="submit">Signin</button>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	<form [formGroup]="signinForm" (ngSubmit)="signin()" novalidate>
+		<mat-form-field>
+			<mat-label>Email</mat-label>
+			<input matInput placeholder="yourusername@gmail.com" formControlName="email">
+			<mat-error *ngIf="signinForm.controls['email'].hasError('required')">
+				Email is <strong>required</strong>
+			</mat-error>
+			<mat-error *ngIf="signinForm.controls['email'].hasError('email')">
+				Email is <strong>not valid</strong>
+			</mat-error>
+		</mat-form-field>
+
+		<mat-form-field>
+			<mat-label>Password</mat-label>
+			<input type="password" matInput placeholder="your password here." formControlName="password">
+
+			<mat-error *ngIf="signinForm.controls['password'].hasError('required')">
+				Password is <strong>required</strong>
+			</mat-error>
+
+			<mat-error *ngIf="signinForm.controls['password'].hasError('notFound')">
+				Click <strong><a routerLink="/home">here</a></strong> to register a new account
+			</mat-error>
+
+			<mat-error *ngIf="signinForm.controls['password'].hasError('password')">
+				Password is <strong>not valid</strong>
+			</mat-error>
+		</mat-form-field>
+
+		<mat-error *ngIf="signinForm.controls['email'].hasError('unverified')">
+			Please accept the confirmation in your email address <strong><a [href]="emailDomain" target="_blank">{{unverifiedEmail}}</a></strong>, or request for a <strong>new</strong> one and contact your administrator.
+		</mat-error><br>
+		
+		<button color="accent" mat-flat-button type="submit">Signin</button>
+	</form>
 </section>
 <section *ngIf="serverMessage && serverMessage.error" class="center">
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-12">
-				<div class="main_widget">
-					<div class="row">
-						<div class="col-sm-12 col-xs-12">
-							<h1>Server not found</h1>
-							<p>Connection error: {{serverMessage.error.message}}</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	<h1>Server not found</h1>
+	<p>Connection error: {{serverMessage.error.message}}</p>
 </section>

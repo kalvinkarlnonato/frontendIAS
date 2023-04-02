@@ -11,6 +11,8 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   serverMessage:any;
   signinForm: FormGroup;
+  unverifiedEmail: any;
+  emailDomain!: string;
 
   constructor(private authService: AuthService, private router: Router){
 		authService.home().subscribe({
@@ -58,6 +60,10 @@ export class LoginComponent implements OnInit {
             this.signinForm.controls['password'].setErrors({password:true});
           }else if(err.status === 404){
             this.signinForm.controls['password'].setErrors({notFound:true});
+          }else if(err.status === 403){
+            this.unverifiedEmail = this.signinForm.value.email;
+            this.emailDomain = "https://" + this.unverifiedEmail.substring(this.unverifiedEmail.lastIndexOf("@") +1);
+            this.signinForm.controls['email'].setErrors({unverified:true});
           }
         }
       })

@@ -3,33 +3,33 @@ import { Component, Output, EventEmitter, OnInit, HostListener } from '@angular/
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 interface NavbarData{ routeLink: string; icon: string; label: string; }
-const navbarData = [
-  {
+const navbar = {
+  dashboard:{
       routeLink: 'dashboard',
       icon: 'fal fa-home',
       label: 'Dashboard'
   },
-  {
+  profile:{
       routeLink: 'profile',
       icon: 'fal fa-user-circle',
       label: 'Profile'
   },
-  {
+  members:{
       routeLink: 'members',
       icon: 'fal fa-poll-people',
       label: 'Members'
   },
-  {
+  investigation:{
       routeLink: 'investigation',
       icon: 'fal fa-file-search',
       label: 'Investigation'
   },
-  {
+  users:{
       routeLink: 'users',
       icon: 'fal fa-users',
       label: 'Users'
   },
-];
+};
 interface SideNavToggle {
   screenWidth: number;
   collapsed: boolean;
@@ -79,11 +79,11 @@ export class SidenavComponent implements OnInit {
     if(authService.getToken()){
       let user = authService.getUser();
       if(user.role == 'su'){
-        this.navData = [navbarData[0],navbarData[1],navbarData[2],navbarData[3],navbarData[4]];
+        this.navData = [navbar['dashboard'],navbar['profile'],navbar['members'],navbar['investigation'],navbar['users']];
       }else if(user.role == 'ad'){
-        this.navData = [navbarData[0],navbarData[1],navbarData[2],navbarData[4]];
+        this.navData = [navbar['dashboard'],navbar['profile'],navbar['members'],navbar['investigation']];
       }else if(user.role == 'ia'){
-        this.navData = [navbarData[0],navbarData[1],navbarData[3]];
+        this.navData = [navbar['dashboard'],navbar['profile'],navbar['investigation']];
       }
     }
   }
