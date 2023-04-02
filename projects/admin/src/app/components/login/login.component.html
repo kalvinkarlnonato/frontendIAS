@@ -1,4 +1,5 @@
-<section id="login" class="login_section">
+<mat-spinner *ngIf="!serverMessage" class="center"></mat-spinner>
+<section *ngIf="serverMessage && serverMessage.success">
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12">
@@ -32,6 +33,22 @@
 									<button color="accent" mat-flat-button type="submit">Signin</button>
 								</form>
 							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<section *ngIf="serverMessage && serverMessage.error" class="center">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="main_widget">
+					<div class="row">
+						<div class="col-sm-12 col-xs-12">
+							<h1>Server not found</h1>
+							<p>Connection error: {{serverMessage.error.message}}</p>
 						</div>
 					</div>
 				</div>

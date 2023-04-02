@@ -9,10 +9,19 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
+  serverMessage:any;
   signinForm: FormGroup;
 
   constructor(private authService: AuthService, private router: Router){
+		authService.home().subscribe({
+			next: res => {
+        this.serverMessage = res;
+			},
+			error: err => {
+        this.serverMessage = err;
+        console.log(err);
+			}
+		});
     this.signinForm = new FormGroup({
       email: new FormControl('',[Validators.required, Validators.email]),
       password: new FormControl('',[Validators.required]),
@@ -42,7 +51,7 @@ export class LoginComponent implements OnInit {
           console.log(res);
           this.authService.saveToken(res.token);
           this.authService.saveUser(res);
-          this.router.navigate(['dashboard']);
+          window.location.reload();
         },
         error: (err) => {
           if(err.status === 401){

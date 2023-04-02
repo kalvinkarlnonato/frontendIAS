@@ -21,6 +21,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { AppComponent } from './app.component';
 import { BodyComponent } from './components/body/body.component';
@@ -31,8 +33,9 @@ import { InvestigationComponent } from './components/investigation/investigation
 import { AddEditComponent } from './components/members/add-edit/add-edit.component';
 
 import { LoginComponent } from './components/login/login.component';
-import { authInterceptorProviders } from './services/auth.interceptor';
+import { authInterceptorProviders } from './interceptors/auth.interceptor';
 import { UsersComponent } from './components/users/users.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +47,8 @@ import { UsersComponent } from './components/users/users.component';
     InvestigationComponent,
     AddEditComponent,
     LoginComponent,
-    UsersComponent
+    UsersComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -67,6 +71,8 @@ import { UsersComponent } from './components/users/users.component';
     MatPaginatorModule,
     MatSortModule,
     MatSnackBarModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
