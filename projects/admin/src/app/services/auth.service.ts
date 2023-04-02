@@ -17,6 +17,10 @@ const httpOptions = {
 export class AuthService {
 
   constructor(private http: HttpClient) { }
+  
+  home(): Observable<any> {
+    return this.http.get(`${environment.apiUrl}`, httpOptions);
+  }
 
   signin(user: User): Observable<Auth> {
     return this.http.post<Auth>(`${environment.apiUrl}/user/signin`,user);
@@ -32,11 +36,11 @@ export class AuthService {
   getToken(): any {
     return localStorage.getItem(TOKEN_KEY);
   }
-  saveUser(user: any): void {
+  saveUser(user: User): void {
     window.localStorage.removeItem(USER_KEY);
     window.localStorage.setItem(USER_KEY, JSON.stringify(user));
   }
-  getUser(): any {
+  getUser(): User {
     return JSON.parse(localStorage.getItem(USER_KEY)+'');
   }
 }
