@@ -13,7 +13,7 @@ export class ProfileGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       if(this.authService.getToken()){
         let user = this.authService.getUser();
-        if(user.role === 'su'){
+        if(user.role){
           return true;
         }
         return false;
