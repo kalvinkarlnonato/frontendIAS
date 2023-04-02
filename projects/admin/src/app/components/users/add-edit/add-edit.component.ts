@@ -35,25 +35,24 @@ export class AddEditComponent implements OnInit {
     if (this.userForm.valid) {
       if (this.data) {
         this.userService.updateUser(this.data.id, this.userForm.value).subscribe({
-            next: (res: User) => {
+            next: (res) => {
               this.coreService.openSnackBar('User detail updated!');
-              // console.log(res);
               this.dialogRef.close(true);
             },
-            error: (err: User) => {
+            error: (err) => {
               console.error(err);
             },
           });
       } else {
-        // console.log(this.userForm.value);
         this.userService.addUser(this.userForm.value).subscribe({
-          next: (res: User) => {
+          next: (res) => {
             this.coreService.openSnackBar('User added successfully');
-            // console.log(res);
             this.dialogRef.close(true);
           },
-          error: (err: User) => {
-            console.error(err);
+          error: (err) => {
+            if(err.status == 409){
+              this.userForm.controls['email'].setErrors({duplicate: true});
+            }
           },
         });
       }
