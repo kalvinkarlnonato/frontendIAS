@@ -32,10 +32,12 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { MembersComponent } from './components/members/members.component';
 import { AddEditComponent as AddEditMember } from './components/members/add-edit/add-edit.component';
 import { InvestigationComponent } from './components/investigation/investigation.component';
+import { AddEditComponent as AddEditInspection } from './components/investigation/add-edit/add-edit.component';
 import { UsersComponent } from './components/users/users.component';
 import { AddEditComponent as AddEditUser } from './components/users/add-edit/add-edit.component';
-
 import { LoginComponent } from './components/login/login.component';
+
+import { DatePipe } from '@angular/common';
 import { authInterceptorProviders } from './interceptors/auth.interceptor';
 
 
@@ -51,7 +53,8 @@ import { authInterceptorProviders } from './interceptors/auth.interceptor';
     UsersComponent,
     ProfileComponent,
     AddEditMember,
-    AddEditUser
+    AddEditUser,
+    AddEditInspection
   ],
   imports: [
     BrowserModule,
@@ -77,7 +80,7 @@ import { authInterceptorProviders } from './interceptors/auth.interceptor';
     MatProgressBarModule,
     MatProgressSpinnerModule,
   ],
-  providers: [authInterceptorProviders],
+  providers: [authInterceptorProviders,DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
