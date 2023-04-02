@@ -11,13 +11,13 @@ export class InvestigatorGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if(this.authService.getToken()){
-      let user = this.authService.getUser();
-      if(user.role === 'ia'){
-        return true;
+      if(this.authService.getToken()){
+        let user = this.authService.getUser();
+        if(user.role === 'su'){
+          return true;
+        }
+        return false;
       }
       return false;
-    }
-    return false;
   }
 }
