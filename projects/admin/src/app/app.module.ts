@@ -28,14 +28,16 @@ import { AppComponent } from './app.component';
 import { BodyComponent } from './components/body/body.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { ProfileComponent } from './components/profile/profile.component';
 import { MembersComponent } from './components/members/members.component';
+import { AddEditComponent as AddEditMember } from './components/members/add-edit/add-edit.component';
 import { InvestigationComponent } from './components/investigation/investigation.component';
-import { AddEditComponent } from './components/members/add-edit/add-edit.component';
+import { UsersComponent } from './components/users/users.component';
+import { AddEditComponent as AddEditUser } from './components/users/add-edit/add-edit.component';
 
 import { LoginComponent } from './components/login/login.component';
 import { authInterceptorProviders } from './interceptors/auth.interceptor';
-import { UsersComponent } from './components/users/users.component';
-import { ProfileComponent } from './components/profile/profile.component';
+
 
 @NgModule({
   declarations: [
@@ -45,10 +47,11 @@ import { ProfileComponent } from './components/profile/profile.component';
     DashboardComponent,
     MembersComponent,
     InvestigationComponent,
-    AddEditComponent,
     LoginComponent,
     UsersComponent,
-    ProfileComponent
+    ProfileComponent,
+    AddEditMember,
+    AddEditUser
   ],
   imports: [
     BrowserModule,

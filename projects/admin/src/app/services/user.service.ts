@@ -13,7 +13,7 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
   addUser(data: User): Observable<User> {
-    return this.http.post<User>('http://localhost:3500/user/add', data);
+    return this.http.post<User>('http://localhost:3500/user/signup', data);
   }
 
   getUserAll(): Observable<User[]> {
@@ -21,7 +21,7 @@ export class UserService {
   }
 
   updateUser(id: number, data: any): Observable<User> {
-    return this.http.put<User>(`http://localhost:3500/user/edit/${id}`, data);
+    return this.http.put<User>(`http://localhost:3500/user/update/${id}`, data);
   }
 
   deleteUser(id: number): Observable<User> {

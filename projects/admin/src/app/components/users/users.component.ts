@@ -80,7 +80,8 @@ export class UsersComponent implements OnInit {
     });
   }
 
-  openEditForm(data: any) {
+  openEditForm(data: User) {
+    data.password="";
     const dialogRef = this.dialog.open(AddEditComponent, {
       data,
     });
