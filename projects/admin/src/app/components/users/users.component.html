@@ -30,7 +30,7 @@
 
       <ng-container matColumnDef="role">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Role </th>
-        <td mat-cell *matCellDef="let row"> {{row.role}}</td>
+        <td mat-cell *matCellDef="let row"> {{getRole(row.role)}}</td>
       </ng-container>
 
       <ng-container matColumnDef="confirm">

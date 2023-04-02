@@ -9,7 +9,6 @@ import { CoreService } from '../../services/core.service';
 import { User } from '../../models/user.model';
 import { UserService } from '../../services/user.service';
 
-
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
@@ -21,7 +20,7 @@ export class UsersComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-
+ 
   constructor(
     private dialog: MatDialog,
     private userService: UserService,
@@ -53,7 +52,15 @@ export class UsersComponent implements OnInit {
       error: console.log,
     });
   }
-
+  getRole(role:string):string{
+    if(role=='ad'){
+      return 'admin'
+    }else if(role=='ia'){
+      return 'investigator'
+    }else{
+      return ''
+    }
+  }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
